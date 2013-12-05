@@ -2,18 +2,28 @@ package nl.topicuszorg.growclient.model.request;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * The data for adding a new measurement.
  * 
  * @author Dries Schulten
  */
-public class Measurement extends AbstractRequestData
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "measurement")
+public class Measurement
 {
+	@XmlElement
 	private Date date;
 
+	@XmlElement
 	private MeasurementType type;
 
-	private int measurement;
+	@XmlElement
+	private int value;
 
 	public Date getDate()
 	{
@@ -35,13 +45,13 @@ public class Measurement extends AbstractRequestData
 		this.type = type;
 	}
 
-	public int getMeasurement()
+	public int getValue()
 	{
-		return measurement;
+		return value;
 	}
 
-	public void setMeasurement(int measurement)
+	public void setValue(int value)
 	{
-		this.measurement = measurement;
+		this.value = value;
 	}
 }

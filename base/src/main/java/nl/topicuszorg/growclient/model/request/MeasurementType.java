@@ -31,4 +31,10 @@ public enum MeasurementType
 	{
 		return type;
 	}
+
+	@Override
+	public String toString()
+	{
+		return getType();
+	}
 }
