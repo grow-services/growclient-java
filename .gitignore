@@ -2,6 +2,7 @@
 .project
 .checkstyle
 .settings
+.gradle/
 target/
 generated/
 bin/
