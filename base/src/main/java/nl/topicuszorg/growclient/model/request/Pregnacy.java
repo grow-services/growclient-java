@@ -2,25 +2,39 @@ package nl.topicuszorg.growclient.model.request;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Used to register a pregancy. Holds all the information needed.
  * 
  * @author Dries Schulten
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "pregnacy")
 public class Pregnacy extends AbstractRequestData
 {
+	@XmlElement(name = "growchartversion")
 	private String growchartVersion;
 
+	@XmlElement(name = "maternalheight")
 	private int maternalHeight;
 
-	private int maternalWeight;
+	@XmlElement(name = "maternalwidth")
+	private int maternalWidth;
 
+	@XmlElement(name = "ethnicity")
 	private String ethnicity;
 
+	@XmlElement(name = "parity")
 	private int parity;
 
+	@XmlElement(name = "edd")
 	private Date edd;
 
+	@XmlElement(name = "requestdate")
 	private Date requestDate;
 
 	public String getGrowchartVersion()
@@ -43,14 +57,14 @@ public class Pregnacy extends AbstractRequestData
 		this.maternalHeight = maternalHeight;
 	}
 
-	public int getMaternalWeight()
+	public int getMaternalWidth()
 	{
-		return maternalWeight;
+		return maternalWidth;
 	}
 
-	public void setMaternalWeight(int maternalWeight)
+	public void setMaternalWidth(int maternalWidth)
 	{
-		this.maternalWeight = maternalWeight;
+		this.maternalWidth = maternalWidth;
 	}
 
 	public String getEthnicity()
