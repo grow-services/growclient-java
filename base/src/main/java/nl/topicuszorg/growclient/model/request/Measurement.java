@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import nl.topicuszorg.growclient.util.DateAdapter;
 
 /**
  * The data for adding a new measurement.
@@ -17,6 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Measurement
 {
 	@XmlElement
+	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date date;
 
 	@XmlElement

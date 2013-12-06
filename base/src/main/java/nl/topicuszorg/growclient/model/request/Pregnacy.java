@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import nl.topicuszorg.growclient.util.DateAdapter;
 
 /**
  * Used to register a pregancy. Holds all the information needed.
@@ -32,9 +35,11 @@ public class Pregnacy extends AbstractRequestData
 	private int parity;
 
 	@XmlElement(name = "edd")
+	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date edd;
 
 	@XmlElement(name = "requestdate")
+	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date requestDate;
 
 	public String getGrowchartVersion()

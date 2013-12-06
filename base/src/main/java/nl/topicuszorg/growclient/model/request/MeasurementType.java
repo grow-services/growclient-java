@@ -1,40 +1,23 @@
 package nl.topicuszorg.growclient.model.request;
 
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
+
 /**
  * Measurement types
  * 
  * @author Dries Schulten
  */
+@XmlEnum(String.class)
 public enum MeasurementType
 {
 	/** */
-	EFW("EFW"),
+	@XmlEnumValue("EFW")
+	EFW,
 	/** */
-	FUNDAL_HEIGHT("fundalheight"),
+	@XmlEnumValue("funalheight")
+	FUNDAL_HEIGHT,
 	/** */
-	BIRTH_WEIGHT("birthweight");
-
-	private final String type;
-
-	/**
-	 * Construct
-	 * 
-	 * @param type
-	 *            the given type
-	 */
-	private MeasurementType(String type)
-	{
-		this.type = type;
-	}
-
-	public String getType()
-	{
-		return type;
-	}
-
-	@Override
-	public String toString()
-	{
-		return getType();
-	}
+	@XmlEnumValue("birthweight")
+	BIRTH_WEIGHT;
 }
