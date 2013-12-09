@@ -1,28 +1,62 @@
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.9'
+task wrapper(type: Wrapper) { gradleVersion = '1.9' }
+
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven {
+			name 'jboss-nexus'
+			url "http://repository.jboss.org/nexus/content/groups/public/"
+		}
+	}
+
+	dependencies { classpath 'org.hibernate.build.gradle:gradle-maven-publish-auth:2.0.1' }
 }
 
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	apply plugin: 'maven'
-	
+	apply plugin: 'maven-publish'
+	apply plugin: 'maven-publish-auth'
+
 	sourceCompatibility = 1.7
 	targetCompatibility = 1.7
-	
+
 	repositories {
 		mavenLocal()
-	    mavenCentral()
+		mavenCentral()
 	}
-	
+
 	dependencies {
 		compile 'org.slf4j:slf4j-api:1.7.5'
-		
+
 		testCompile 'junit:junit:4.11'
 		testCompile 'ch.qos.logback:logback-classic:1.0.13'
 		testCompile 'org.codehaus.groovy:groovy-all:2.2.1'
 	}
-	
+
 	group = 'nl.topicuszorg.growclient'
 	version = '1.0-SNAPSHOT'
+
+	task sourceJar(type: Jar) { from sourceSets.main.allJava }
+
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				from components.java
+				artifact sourceJar { classifier "sources" }
+			}
+		}
+		repositories {
+			maven {
+				name = "deployment.external"
+				if(project.version.endsWith('-SNAPSHOT')) {
+					url "http://vaatwasser:8081/nexus/content/repositories/external-snapshot/"
+				} else {
+					url "http://vaatwasser:8081/nexus/content/repositories/external-releases/"
+				}
+			}
+		}
+	}
 }
