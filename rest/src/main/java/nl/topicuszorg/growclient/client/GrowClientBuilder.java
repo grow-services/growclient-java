@@ -42,6 +42,7 @@ public class GrowClientBuilder
 		}
 
 		ClientBuilder builder = ClientBuilder.newBuilder();
+		builder.register(TokenRequestFilter.class);
 
 		try
 		{

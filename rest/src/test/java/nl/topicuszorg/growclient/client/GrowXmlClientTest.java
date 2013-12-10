@@ -2,8 +2,10 @@ package nl.topicuszorg.growclient.client;
 
 import static junit.framework.Assert.assertNotNull;
 import static org.mockito.Matchers.notNull;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import nl.topicuszorg.growclient.model.request.Measurements;
 import nl.topicuszorg.growclient.model.request.Pregnacy;
 import nl.topicuszorg.growclient.model.response.GrowChart;
 import org.junit.Before;
@@ -49,5 +51,15 @@ public class GrowXmlClientTest
 		pregnacy.setEdd(new Date());
 
 		assertNotNull(client.registerPregnancy(pregnacy));
+	}
+
+	/**
+	 * Adding measurements
+	 */
+	@Test
+	public void testAddMeasurements()
+	{
+		client.addMeasurement(new Measurements());
+		verify(client).addMeasurement(notNull(Measurements.class));
 	}
 }
