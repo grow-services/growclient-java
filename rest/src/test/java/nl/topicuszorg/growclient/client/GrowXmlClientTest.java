@@ -5,9 +5,11 @@ import static org.mockito.Matchers.notNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import nl.topicuszorg.growclient.model.request.ChartImage;
 import nl.topicuszorg.growclient.model.request.Measurements;
 import nl.topicuszorg.growclient.model.request.Pregnacy;
 import nl.topicuszorg.growclient.model.response.GrowChart;
+import nl.topicuszorg.growclient.model.response.GrowChartImage;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -61,5 +63,19 @@ public class GrowXmlClientTest
 	{
 		client.addMeasurement(new Measurements());
 		verify(client).addMeasurement(notNull(Measurements.class));
+	}
+
+	/**
+	 * Get chart image
+	 */
+	@Test
+	public void testGetChartImage()
+	{
+		ChartImage image = new ChartImage();
+		image.setFirstName("Test");
+
+		when(client.getChartImage(image)).thenReturn(new GrowChartImage());
+
+		assertNotNull(client.getChartImage(image));
 	}
 }

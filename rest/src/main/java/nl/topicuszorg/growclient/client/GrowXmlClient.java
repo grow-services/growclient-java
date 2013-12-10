@@ -6,9 +6,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import nl.topicuszorg.growclient.model.request.ChartImage;
 import nl.topicuszorg.growclient.model.request.Measurements;
 import nl.topicuszorg.growclient.model.request.Pregnacy;
 import nl.topicuszorg.growclient.model.response.GrowChart;
+import nl.topicuszorg.growclient.model.response.GrowChartImage;
 
 /**
  * Grow REST proxy based client
@@ -43,4 +45,17 @@ public interface GrowXmlClient
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
 	public void addMeasurement(Measurements measurements);
+
+	/**
+	 * Used to retrieve a chart image object based in the given input
+	 * 
+	 * @param image
+	 *            the input object containing the parameters to generate a image
+	 * @return the output image value
+	 */
+	@Path("/getChartImage/")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_XML)
+	@POST
+	public GrowChartImage getChartImage(ChartImage image);
 }
