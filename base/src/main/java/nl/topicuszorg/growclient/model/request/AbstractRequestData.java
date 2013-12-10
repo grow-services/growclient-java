@@ -31,4 +31,24 @@ public abstract class AbstractRequestData
 	{
 		this.growchartId = growchartId;
 	}
+
+	public String getLicenseKey()
+	{
+		return licenseKey;
+	}
+
+	public void setLicenseKey(String licenseKey)
+	{
+		this.licenseKey = licenseKey;
+	}
+
+	public String getToken()
+	{
+		return token;
+	}
+
+	public void setToken(String token)
+	{
+		this.token = token;
+	}
 }

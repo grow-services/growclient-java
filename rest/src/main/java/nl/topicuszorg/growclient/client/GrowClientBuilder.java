@@ -6,6 +6,8 @@ import javax.net.ssl.SSLContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
+import nl.topicuszorg.growclient.GrowClientSettings;
+
 import org.glassfish.jersey.client.proxy.WebResourceFactory;
 
 /**
@@ -17,12 +19,12 @@ public class GrowClientBuilder
 {
 	private static final String BASE_URL = "https://www.grow-services.net";
 
-	private GrowClient client;
+	private GrowXmlClient client;
 
 	/**
 	 * @return a initialised grow charts proxy client
 	 */
-	public GrowClient getClient()
+	public GrowXmlClient getClient()
 	{
 		if (client == null)
 		{
@@ -34,6 +36,11 @@ public class GrowClientBuilder
 
 	private void createClient()
 	{
+		if (!GrowClientSettings.isValid())
+		{
+			throw new IllegalStateException("No settings suplied, cannot create client");
+		}
+
 		ClientBuilder builder = ClientBuilder.newBuilder();
 
 		try
@@ -48,6 +55,6 @@ public class GrowClientBuilder
 		Client rsClient = builder.build();
 
 		// Construct proxy client
-		client = WebResourceFactory.newResource(GrowClient.class, rsClient.target(BASE_URL));
+		client = WebResourceFactory.newResource(GrowXmlClient.class, rsClient.target(BASE_URL));
 	}
 }

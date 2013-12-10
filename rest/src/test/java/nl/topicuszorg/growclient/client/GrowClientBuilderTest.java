@@ -1,5 +1,7 @@
 package nl.topicuszorg.growclient.client;
 
+import nl.topicuszorg.growclient.GrowClientSettings;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -17,8 +19,11 @@ public class GrowClientBuilderTest
 	@Test
 	public void testCreateClient()
 	{
+		GrowClientSettings.setApiKey("key");
+		GrowClientSettings.setSecret("secret");
+
 		GrowClientBuilder builder = new GrowClientBuilder();
-		GrowClient client = builder.getClient();
+		GrowXmlClient client = builder.getClient();
 
 		assertNotNull(client);
 	}

@@ -14,7 +14,8 @@ import nl.topicuszorg.growclient.model.response.GrowChart;
  * @author Dries Schulten
  */
 @Path("/api/grow/xml")
-public interface GrowClient
+@XmlApiMethod
+public interface GrowXmlClient
 {
 	/**
 	 * Register a pregnacy in the system
