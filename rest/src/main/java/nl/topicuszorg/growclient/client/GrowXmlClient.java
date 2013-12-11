@@ -6,9 +6,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import nl.topicuszorg.growclient.model.request.ChartImage;
-import nl.topicuszorg.growclient.model.request.Measurements;
-import nl.topicuszorg.growclient.model.request.Pregnacy;
+import nl.topicuszorg.growclient.model.request.ChartImageInput;
+import nl.topicuszorg.growclient.model.request.MeasurementsInput;
+import nl.topicuszorg.growclient.model.request.PregnacyInput;
 import nl.topicuszorg.growclient.model.response.GrowChart;
 import nl.topicuszorg.growclient.model.response.GrowChartImage;
 
@@ -32,7 +32,7 @@ public interface GrowXmlClient
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
-	public GrowChart registerPregnancy(Pregnacy pregnacy);
+	public GrowChart registerPregnancy(PregnacyInput pregnacy);
 
 	/**
 	 * Used to register new measurements with an ongoing chart
@@ -44,7 +44,7 @@ public interface GrowXmlClient
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
-	public void addMeasurement(Measurements measurements);
+	public void addMeasurement(MeasurementsInput measurements);
 
 	/**
 	 * Used to retrieve a chart image object based in the given input
@@ -57,5 +57,5 @@ public interface GrowXmlClient
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
-	public GrowChartImage getChartImage(ChartImage image);
+	public GrowChartImage getChartImage(ChartImageInput image);
 }

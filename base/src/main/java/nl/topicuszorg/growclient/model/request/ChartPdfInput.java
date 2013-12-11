@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author Dries Schulten
  */
-public class ChartPdf extends Pregnacy
+public class ChartPdfInput extends PregnacyInput
 {
 	private String firstName;
 

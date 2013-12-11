@@ -17,7 +17,7 @@ import nl.topicuszorg.growclient.util.DateAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "pregnacy")
-public class Pregnacy extends AbstractRequestData
+public class PregnacyInput extends AbstractRequestData
 {
 	@XmlElement(name = "growchartversion")
 	private String growchartVersion;

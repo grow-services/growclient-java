@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author Dries Schulten
  */
-public class ChartImage extends AbstractRequestData
+public class ChartImageInput extends AbstractRequestData
 {
 	private int width;
 

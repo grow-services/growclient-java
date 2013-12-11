@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "measurements")
-public class Measurements extends AbstractRequestData
+public class MeasurementsInput extends AbstractRequestData
 {
 	@XmlElement
 	private List<Measurement> measurements = new ArrayList<>();

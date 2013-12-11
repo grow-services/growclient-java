@@ -16,7 +16,7 @@ import nl.topicuszorg.growclient.util.DateAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "birth")
-public class Birth extends AbstractRequestData
+public class BirthInput extends AbstractRequestData
 {
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date babyDob;

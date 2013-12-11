@@ -8,11 +8,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import nl.topicuszorg.growclient.model.request.Birth;
-import nl.topicuszorg.growclient.model.request.Measurement;
-import nl.topicuszorg.growclient.model.request.MeasurementType;
-import nl.topicuszorg.growclient.model.request.Measurements;
-import nl.topicuszorg.growclient.model.request.Pregnacy;
+import nl.topicuszorg.growclient.model.request.*;
+import nl.topicuszorg.growclient.model.request.BirthInput;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -40,7 +37,7 @@ public class XmlTransformTest
 	@BeforeClass
 	public static void setupContext() throws JAXBException
 	{
-		context = JAXBContext.newInstance(Pregnacy.class, Birth.class, Measurements.class);
+		context = JAXBContext.newInstance(PregnacyInput.class, BirthInput.class, MeasurementsInput.class);
 	}
 
 	private void toXml(Object in, Writer out)
@@ -63,7 +60,7 @@ public class XmlTransformTest
 	@Test
 	public void testTransformPregnacy()
 	{
-		Pregnacy pregnacy = new Pregnacy();
+		PregnacyInput pregnacy = new PregnacyInput();
 
 		pregnacy.setEdd(new Date());
 		pregnacy.setEthnicity("Nederlands");
@@ -75,7 +72,7 @@ public class XmlTransformTest
 		StringWriter writer = new StringWriter();
 		toXml(pregnacy, writer);
 
-		LOG.info("Pregnacy:\n" + writer);
+		LOG.info("PregnacyInput:\n" + writer);
 	}
 
 	/**
@@ -84,7 +81,7 @@ public class XmlTransformTest
 	@Test
 	public void testTransformBirth()
 	{
-		Birth birth = new Birth();
+		BirthInput birth = new BirthInput();
 
 		birth.setAntenatalIugrDetection("t");
 		birth.setBabyDob(new Date());
@@ -95,7 +92,7 @@ public class XmlTransformTest
 		StringWriter writer = new StringWriter();
 		toXml(birth, writer);
 
-		LOG.info("Birth:\n" + writer);
+		LOG.info("BirthInput:\n" + writer);
 	}
 
 	/**
@@ -104,7 +101,7 @@ public class XmlTransformTest
 	@Test
 	public void testTransformMeasurements()
 	{
-		Measurements measurements = new Measurements();
+		MeasurementsInput measurements = new MeasurementsInput();
 
 		for (MeasurementType type : MeasurementType.values())
 		{
@@ -118,6 +115,6 @@ public class XmlTransformTest
 		StringWriter writer = new StringWriter();
 		toXml(measurements, writer);
 
-		LOG.info("Measurements:\n" + writer);
+		LOG.info("MeasurementsInput:\n" + writer);
 	}
 }
