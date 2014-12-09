@@ -1,6 +1,6 @@
 package nl.topicuszorg.growclient.model.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Chart input object. Used to request a chart.
@@ -21,7 +21,7 @@ public class ChartImageInput extends AbstractRequestData
 
 	private String lastName;
 
-	private Date maternalDob;
+	private LocalDate maternalDob;
 
 	private String maternalReference;
 
@@ -85,12 +85,12 @@ public class ChartImageInput extends AbstractRequestData
 		this.lastName = lastName;
 	}
 
-	public Date getMaternalDob()
+	public LocalDate getMaternalDob()
 	{
 		return maternalDob;
 	}
 
-	public void setMaternalDob(Date maternalDob)
+	public void setMaternalDob(LocalDate maternalDob)
 	{
 		this.maternalDob = maternalDob;
 	}

@@ -1,13 +1,14 @@
 package nl.topicuszorg.growclient.model.response;
 
-import nl.topicuszorg.growclient.util.DateAdapter;
+import nl.topicuszorg.growclient.util.LocalDateAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 /**
  * Grow chart image response object
@@ -37,8 +38,8 @@ public class GrowChartImage extends GrowChart
 	private String lastName;
 
 	@XmlElement(name = "maternaldob")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date maternalDob;
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	private LocalDate maternalDob;
 
 	@XmlElement(name = "url")
 	private String url;
@@ -103,12 +104,12 @@ public class GrowChartImage extends GrowChart
 		this.lastName = lastName;
 	}
 
-	public Date getMaternalDob()
+	public LocalDate getMaternalDob()
 	{
 		return maternalDob;
 	}
 
-	public void setMaternalDob(Date maternalDob)
+	public void setMaternalDob(LocalDate maternalDob)
 	{
 		this.maternalDob = maternalDob;
 	}

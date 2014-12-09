@@ -5,17 +5,23 @@ import static org.mockito.Matchers.notNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import nl.topicuszorg.growclient.model.request.*;
+import java.time.LocalDate;
+
+import nl.topicuszorg.growclient.model.request.BirthInput;
+import nl.topicuszorg.growclient.model.request.ChartImageInput;
+import nl.topicuszorg.growclient.model.request.ChartPdfInput;
+import nl.topicuszorg.growclient.model.request.DataCentileInput;
+import nl.topicuszorg.growclient.model.request.MeasurementsInput;
+import nl.topicuszorg.growclient.model.request.PregnacyInput;
 import nl.topicuszorg.growclient.model.response.DataCentile;
 import nl.topicuszorg.growclient.model.response.GrowChart;
 import nl.topicuszorg.growclient.model.response.GrowChartImage;
 import nl.topicuszorg.growclient.model.response.GrowChartPdf;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.Date;
 
 
 /**
@@ -50,7 +56,7 @@ public class GrowXmlClientTest
 		when(client.registerPregnancy(notNull(PregnacyInput.class))).thenReturn(chart);
 
 		PregnacyInput pregnacy = new PregnacyInput();
-		pregnacy.setEdd(new Date());
+		pregnacy.setEdd(LocalDate.now());
 
 		assertNotNull(client.registerPregnancy(pregnacy));
 	}
@@ -100,7 +106,7 @@ public class GrowXmlClientTest
 	public void testGetData()
 	{
 		DataCentileInput data = new DataCentileInput();
-		data.setRequestDate(new Date());
+		data.setRequestDate(LocalDate.now());
 
 		when(client.getData(data)).thenReturn(new DataCentile());
 

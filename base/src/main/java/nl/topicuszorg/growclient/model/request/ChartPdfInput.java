@@ -1,6 +1,6 @@
 package nl.topicuszorg.growclient.model.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Used to request a PDF version of a growchart.
@@ -13,7 +13,7 @@ public class ChartPdfInput extends PregnacyInput
 
 	private String surname;
 
-	private Date maternalDob;
+	private LocalDate maternalDob;
 
 	private String maternalReference;
 
@@ -45,12 +45,12 @@ public class ChartPdfInput extends PregnacyInput
 		this.surname = surname;
 	}
 
-	public Date getMaternalDob()
+	public LocalDate getMaternalDob()
 	{
 		return maternalDob;
 	}
 
-	public void setMaternalDob(Date maternalDob)
+	public void setMaternalDob(LocalDate maternalDob)
 	{
 		this.maternalDob = maternalDob;
 	}

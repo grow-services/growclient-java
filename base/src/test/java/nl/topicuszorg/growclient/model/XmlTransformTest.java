@@ -1,22 +1,25 @@
 package nl.topicuszorg.growclient.model;
 
+import static org.junit.Assert.fail;
+
 import java.io.StringWriter;
 import java.io.Writer;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import nl.topicuszorg.growclient.model.request.*;
 import nl.topicuszorg.growclient.model.request.BirthInput;
+import nl.topicuszorg.growclient.model.request.Measurement;
+import nl.topicuszorg.growclient.model.request.MeasurementType;
+import nl.topicuszorg.growclient.model.request.MeasurementsInput;
+import nl.topicuszorg.growclient.model.request.PregnacyInput;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static org.junit.Assert.fail;
 
 /**
  * Tries converting the domain object
@@ -62,12 +65,12 @@ public class XmlTransformTest
 	{
 		PregnacyInput pregnacy = new PregnacyInput();
 
-		pregnacy.setEdd(new Date());
+		pregnacy.setEdd(LocalDate.now());
 		pregnacy.setEthnicity("Nederlands");
 		pregnacy.setMaternalHeight(100);
 		pregnacy.setMaternalWidth(50);
 		pregnacy.setParity(1);
-		pregnacy.setRequestDate(new Date());
+		pregnacy.setRequestDate(LocalDate.now());
 
 		StringWriter writer = new StringWriter();
 		toXml(pregnacy, writer);
@@ -84,7 +87,7 @@ public class XmlTransformTest
 		BirthInput birth = new BirthInput();
 
 		birth.setAntenatalIugrDetection("t");
-		birth.setBabyDob(new Date());
+		birth.setBabyDob(LocalDate.now());
 		birth.setBabyGender(0);
 		birth.setBirthGestation("gest");
 		birth.setBirthWeight(3200);
@@ -107,7 +110,7 @@ public class XmlTransformTest
 		{
 			Measurement measurement = new Measurement();
 			measurement.setType(type);
-			measurement.setDate(new Date());
+			measurement.setDate(LocalDate.now());
 			measurement.setValue(type.ordinal());
 			measurements.addMeasurement(measurement);
 		}

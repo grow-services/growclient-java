@@ -1,6 +1,6 @@
 package nl.topicuszorg.growclient.model.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import nl.topicuszorg.growclient.util.DateAdapter;
+import nl.topicuszorg.growclient.util.LocalDateAdapter;
 
 /**
  * The data for adding a new measurement.
@@ -20,8 +20,8 @@ import nl.topicuszorg.growclient.util.DateAdapter;
 public class Measurement
 {
 	@XmlElement
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date date;
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	private LocalDate date;
 
 	@XmlElement
 	private MeasurementType type;
@@ -29,12 +29,12 @@ public class Measurement
 	@XmlElement
 	private int value;
 
-	public Date getDate()
+	public LocalDate getDate()
 	{
 		return date;
 	}
 
-	public void setDate(Date date)
+	public void setDate(LocalDate date)
 	{
 		this.date = date;
 	}

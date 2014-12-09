@@ -1,6 +1,6 @@
 package nl.topicuszorg.growclient.model.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import nl.topicuszorg.growclient.util.DateAdapter;
+import nl.topicuszorg.growclient.util.LocalDateAdapter;
 
 /**
  * Used to register a pregancy. Holds all the information needed.
@@ -35,12 +35,12 @@ public class PregnacyInput extends AbstractRequestData
 	private int parity;
 
 	@XmlElement(name = "edd")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date edd;
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	private LocalDate edd;
 
 	@XmlElement(name = "requestdate")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date requestDate;
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	private LocalDate requestDate;
 
 	public String getGrowchartVersion()
 	{
@@ -92,22 +92,22 @@ public class PregnacyInput extends AbstractRequestData
 		this.parity = parity;
 	}
 
-	public Date getEdd()
+	public LocalDate getEdd()
 	{
 		return edd;
 	}
 
-	public void setEdd(Date edd)
+	public void setEdd(LocalDate edd)
 	{
 		this.edd = edd;
 	}
 
-	public Date getRequestDate()
+	public LocalDate getRequestDate()
 	{
 		return requestDate;
 	}
 
-	public void setRequestDate(Date requestDate)
+	public void setRequestDate(LocalDate requestDate)
 	{
 		this.requestDate = requestDate;
 	}

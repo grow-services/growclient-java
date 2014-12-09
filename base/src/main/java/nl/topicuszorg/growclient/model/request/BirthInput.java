@@ -1,13 +1,13 @@
 package nl.topicuszorg.growclient.model.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import nl.topicuszorg.growclient.util.DateAdapter;
+import nl.topicuszorg.growclient.util.LocalDateAdapter;
 
 /**
  * Used to register a birth.
@@ -18,8 +18,8 @@ import nl.topicuszorg.growclient.util.DateAdapter;
 @XmlRootElement(name = "birth")
 public class BirthInput extends AbstractRequestData
 {
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date babyDob;
+	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	private LocalDate babyDob;
 
 	private String birthGestation;
 
@@ -29,12 +29,12 @@ public class BirthInput extends AbstractRequestData
 
 	private String antenatalIugrDetection;
 
-	public Date getBabyDob()
+	public LocalDate getBabyDob()
 	{
 		return babyDob;
 	}
 
-	public void setBabyDob(Date babyDob)
+	public void setBabyDob(LocalDate babyDob)
 	{
 		this.babyDob = babyDob;
 	}
