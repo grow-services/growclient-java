@@ -5,14 +5,13 @@ import java.security.NoSuchAlgorithmException;
 import javax.net.ssl.SSLContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
 import nl.topicuszorg.growclient.GrowClientSettings;
 
-import org.glassfish.jersey.client.proxy.WebResourceFactory;
-
 /**
  * Grow proxy client builder
- * 
+ *
  * @author Dries Schulten
  */
 public class GrowClientBuilder
@@ -38,7 +37,7 @@ public class GrowClientBuilder
 	{
 		if (!GrowClientSettings.isValid())
 		{
-			throw new IllegalStateException("No settings suplied, cannot create client");
+			throw new IllegalStateException("No settings supplied, cannot create client");
 		}
 
 		ClientBuilder builder = ClientBuilder.newBuilder();
@@ -55,7 +54,9 @@ public class GrowClientBuilder
 
 		Client rsClient = builder.build();
 
+
 		// Construct proxy client
-		client = WebResourceFactory.newResource(GrowXmlClient.class, rsClient.target(BASE_URL));
+		WebTarget target = rsClient.target(BASE_URL);
+		client = target.request().get(GrowXmlClient.class);
 	}
 }

@@ -19,5 +19,5 @@ public enum MeasurementType
 	FUNDAL_HEIGHT,
 	/** */
 	@XmlEnumValue("birthweight")
-	BIRTH_WEIGHT;
+	BIRTH_WEIGHT
 }

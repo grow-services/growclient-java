@@ -1,1 +1,1 @@
-include "base", "rest"
+include "base", "xml"

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import nl.topicuszorg.growclient.util.DateAdapter;
 
 /**
- * Used to regsiter a birth.
+ * Used to register a birth.
  * 
  * @author Dries Schulten
  */

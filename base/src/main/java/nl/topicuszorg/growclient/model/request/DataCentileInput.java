@@ -1,13 +1,14 @@
 package nl.topicuszorg.growclient.model.request;
 
-import nl.topicuszorg.growclient.util.DateAdapter;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.Date;
+
+import nl.topicuszorg.growclient.util.DateAdapter;
 
 /**
  * Get data call input.
@@ -18,7 +19,7 @@ import java.util.Date;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataCentileInput extends AbstractRequestData
 {
-	/** Optional: if empty the data of the request itself is used */
+	/** Optional: if empty the date of the request itself is used */
 	@XmlElement(name = "requestdate")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date requestDate;

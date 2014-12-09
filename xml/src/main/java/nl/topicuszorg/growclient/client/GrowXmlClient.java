@@ -17,7 +17,7 @@ import nl.topicuszorg.growclient.model.response.GrowChartPdf;
  * 
  * @author Dries Schulten
  */
-@Path("/api/grow/xml")
+@Path("/api/grow/v3/xml")
 @XmlApiMethod
 public interface GrowXmlClient
 {

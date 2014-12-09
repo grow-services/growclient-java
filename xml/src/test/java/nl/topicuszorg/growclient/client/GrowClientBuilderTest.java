@@ -1,10 +1,10 @@
 package nl.topicuszorg.growclient.client;
 
+import static org.junit.Assert.assertNotNull;
+
 import nl.topicuszorg.growclient.GrowClientSettings;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertNotNull;
 
 /**
  * Builder tests
