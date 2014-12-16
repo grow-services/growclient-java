@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * Builder tests
- * 
+ *
  * @author schulten
  */
 public class GrowClientBuilderTest

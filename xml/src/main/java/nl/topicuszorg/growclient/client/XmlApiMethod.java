@@ -7,6 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import javax.ws.rs.NameBinding;
+import javax.ws.rs.ext.Provider;
 
 /**
  * Annotation to define a method is a XML API call
@@ -17,6 +18,7 @@ import javax.ws.rs.NameBinding;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @NameBinding
+@Provider
 public @interface XmlApiMethod
 {
 }
