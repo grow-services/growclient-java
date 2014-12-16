@@ -24,13 +24,20 @@ public class GrowClientBuilder
 	{
 		if (client == null)
 		{
-			createClient();
+			// Check again in sync block if client still null
+			synchronized (this)
+			{
+				if (client == null)
+				{
+					client = createClient();
+				}
+			}
 		}
 
 		return client;
 	}
 
-	private void createClient()
+	private GrowXmlClient createClient()
 	{
 		if (!GrowClientSettings.isValid())
 		{
@@ -41,6 +48,6 @@ public class GrowClientBuilder
 		TokenRequestFilter filter = new TokenRequestFilter();
 
 		// Construct proxy client
-		client = JAXRSClientFactory.create(BASE_URL, GrowXmlClient.class, Collections.singletonList(filter));
+		return JAXRSClientFactory.create(BASE_URL, GrowXmlClient.class, Collections.singletonList(filter));
 	}
 }

@@ -15,8 +15,6 @@ buildscript {
 
 subprojects {
 	apply plugin: 'java'
-	apply plugin: 'eclipse'
-	apply plugin: 'maven'
 	apply plugin: 'maven-publish'
 	apply plugin: 'maven-publish-auth'
 
@@ -39,19 +37,22 @@ subprojects {
 	group = 'nl.topicuszorg.growclient'
 	version = '1.0-SNAPSHOT'
 
-	task sourceJar(type: Jar) { from sourceSets.main.allJava }
+	task sourceJar(type: Jar) {
+		from sourceSets.main.allJava
+		classifier "sources"
+	}
 
 	publishing {
 		publications {
 			mavenJava(MavenPublication) {
 				from components.java
-				artifact sourceJar { classifier "sources" }
+				artifact sourceJar
 			}
 		}
 		repositories {
 			maven {
 				name = "deployment.external"
-				if(project.version.endsWith('-SNAPSHOT')) {
+				if (project.version.endsWith('-SNAPSHOT')) {
 					url "http://vaatwasser:8081/nexus/content/repositories/external-snapshot/"
 				} else {
 					url "http://vaatwasser:8081/nexus/content/repositories/external-releases/"
