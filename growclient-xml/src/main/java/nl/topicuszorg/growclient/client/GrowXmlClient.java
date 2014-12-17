@@ -90,7 +90,7 @@ public interface GrowXmlClient
 	 * @param birth
 	 *            the input parameters for the birth
 	 */
-	@Path("/getData/")
+	@Path("/registerBirth/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@POST
 	void registerBirth(BirthInput birth);
