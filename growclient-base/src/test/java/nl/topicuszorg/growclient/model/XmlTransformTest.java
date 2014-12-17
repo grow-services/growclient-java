@@ -68,7 +68,7 @@ public class XmlTransformTest
 		pregnacy.setEdd(LocalDate.now());
 		pregnacy.setEthnicity("Nederlands");
 		pregnacy.setMaternalHeight(100);
-		pregnacy.setMaternalWidth(50);
+		pregnacy.setMaternalWeight(50);
 		pregnacy.setParity(1);
 		pregnacy.setRequestDate(LocalDate.now());
 

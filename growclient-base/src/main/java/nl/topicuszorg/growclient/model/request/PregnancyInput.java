@@ -26,8 +26,8 @@ public class PregnancyInput extends AbstractRequestData
 	@XmlElement(name = "maternalheight")
 	private int maternalHeight;
 
-	@XmlElement(name = "maternalwidth")
-	private int maternalWidth;
+	@XmlElement(name = "maternalweight")
+	private int maternalWeight;
 
 	@XmlElement(name = "ethnicity")
 	private String ethnicity;
@@ -63,14 +63,14 @@ public class PregnancyInput extends AbstractRequestData
 		this.maternalHeight = maternalHeight;
 	}
 
-	public int getMaternalWidth()
+	public int getMaternalWeight()
 	{
-		return maternalWidth;
+		return maternalWeight;
 	}
 
-	public void setMaternalWidth(int maternalWidth)
+	public void setMaternalWeight(int maternalWeight)
 	{
-		this.maternalWidth = maternalWidth;
+		this.maternalWeight = maternalWeight;
 	}
 
 	public String getEthnicity()
