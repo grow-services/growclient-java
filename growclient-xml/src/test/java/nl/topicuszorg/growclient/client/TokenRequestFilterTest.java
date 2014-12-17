@@ -4,7 +4,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import nl.topicuszorg.growclient.GrowClientSettings;
-import nl.topicuszorg.growclient.model.request.PregnacyInput;
+import nl.topicuszorg.growclient.model.request.PregnancyInput;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -47,14 +47,14 @@ public class TokenRequestFilterTest
 	@Test
 	public void testGenerateToken() throws IOException
 	{
-		PregnacyInput pregnacyInput = new PregnacyInput();
+		PregnancyInput pregnancyInput = new PregnancyInput();
 
-		when(clientRequestContext.getEntity()).thenReturn(pregnacyInput);
+		when(clientRequestContext.getEntity()).thenReturn(pregnancyInput);
 
 		filter.filter(clientRequestContext);
 
-		assertNotNull(pregnacyInput.getToken());
-		assertNotNull(pregnacyInput.getLicenseKey());
+		assertNotNull(pregnancyInput.getToken());
+		assertNotNull(pregnancyInput.getLicenseKey());
 	}
 
 	/**

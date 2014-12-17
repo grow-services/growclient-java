@@ -11,13 +11,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import nl.topicuszorg.growclient.util.LocalDateAdapter;
 
 /**
- * Used to register a pregancy. Holds all the information needed.
+ * Used to register a pregnancy. Holds all the information needed.
  * 
  * @author Dries Schulten
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "pregnacy")
-public class PregnacyInput extends AbstractRequestData
+@XmlRootElement(name = "pregnancy")
+public class PregnancyInput extends AbstractRequestData
 {
 	@XmlElement(name = "growchartversion")
 	private String growchartVersion;

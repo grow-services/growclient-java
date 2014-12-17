@@ -32,7 +32,7 @@ public interface GrowXmlClient
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
-	public GrowChart registerPregnancy(PregnacyInput pregnacy);
+	public GrowChart registerPregnancy(PregnancyInput pregnacy);
 
 	/**
 	 * Used to register new measurements with an ongoing chart

@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * 
  * @author Dries Schulten
  */
-public class ChartPdfInput extends PregnacyInput
+public class ChartPdfInput extends PregnancyInput
 {
 	private String firstName;
 

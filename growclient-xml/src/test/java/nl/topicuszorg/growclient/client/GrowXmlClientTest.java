@@ -12,7 +12,7 @@ import nl.topicuszorg.growclient.model.request.ChartImageInput;
 import nl.topicuszorg.growclient.model.request.ChartPdfInput;
 import nl.topicuszorg.growclient.model.request.DataCentileInput;
 import nl.topicuszorg.growclient.model.request.MeasurementsInput;
-import nl.topicuszorg.growclient.model.request.PregnacyInput;
+import nl.topicuszorg.growclient.model.request.PregnancyInput;
 import nl.topicuszorg.growclient.model.response.DataCentile;
 import nl.topicuszorg.growclient.model.response.GrowChart;
 import nl.topicuszorg.growclient.model.response.GrowChartImage;
@@ -53,9 +53,9 @@ public class GrowXmlClientTest
 		chart.setGrowChartId("1");
 		chart.setGrowChartVersion("NL2013");
 
-		when(client.registerPregnancy(notNull(PregnacyInput.class))).thenReturn(chart);
+		when(client.registerPregnancy(notNull(PregnancyInput.class))).thenReturn(chart);
 
-		PregnacyInput pregnacy = new PregnacyInput();
+		PregnancyInput pregnacy = new PregnancyInput();
 		pregnacy.setEdd(LocalDate.now());
 
 		assertNotNull(client.registerPregnancy(pregnacy));

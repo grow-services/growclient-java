@@ -14,7 +14,7 @@ import nl.topicuszorg.growclient.model.request.BirthInput;
 import nl.topicuszorg.growclient.model.request.Measurement;
 import nl.topicuszorg.growclient.model.request.MeasurementType;
 import nl.topicuszorg.growclient.model.request.MeasurementsInput;
-import nl.topicuszorg.growclient.model.request.PregnacyInput;
+import nl.topicuszorg.growclient.model.request.PregnancyInput;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class XmlTransformTest
 	@BeforeClass
 	public static void setupContext() throws JAXBException
 	{
-		context = JAXBContext.newInstance(PregnacyInput.class, BirthInput.class, MeasurementsInput.class);
+		context = JAXBContext.newInstance(PregnancyInput.class, BirthInput.class, MeasurementsInput.class);
 	}
 
 	private void toXml(Object in, Writer out)
@@ -63,7 +63,7 @@ public class XmlTransformTest
 	@Test
 	public void testTransformPregnacy()
 	{
-		PregnacyInput pregnacy = new PregnacyInput();
+		PregnancyInput pregnacy = new PregnancyInput();
 
 		pregnacy.setEdd(LocalDate.now());
 		pregnacy.setEthnicity("Nederlands");
