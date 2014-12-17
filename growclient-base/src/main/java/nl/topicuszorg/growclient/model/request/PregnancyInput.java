@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import nl.topicuszorg.growclient.model.GrowChartVersion;
 import nl.topicuszorg.growclient.util.LocalDateAdapter;
 
 /**
@@ -20,7 +21,7 @@ import nl.topicuszorg.growclient.util.LocalDateAdapter;
 public class PregnancyInput extends AbstractRequestData
 {
 	@XmlElement(name = "growchartversion")
-	private String growchartVersion;
+	private GrowChartVersion growchartVersion;
 
 	@XmlElement(name = "maternalheight")
 	private int maternalHeight;
@@ -42,12 +43,12 @@ public class PregnancyInput extends AbstractRequestData
 	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	private LocalDate requestDate;
 
-	public String getGrowchartVersion()
+	public GrowChartVersion getGrowchartVersion()
 	{
 		return growchartVersion;
 	}
 
-	public void setGrowchartVersion(String growchartVersion)
+	public void setGrowchartVersion(GrowChartVersion growchartVersion)
 	{
 		this.growchartVersion = growchartVersion;
 	}

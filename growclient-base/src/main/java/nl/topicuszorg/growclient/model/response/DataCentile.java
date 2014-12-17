@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import nl.topicuszorg.growclient.model.GrowChartVersion;
+
 /**
  * Get data value response object
  *
@@ -15,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class DataCentile
 {
 	@XmlElement(name = "growchartversion")
-	private String growChartVersion;
+	private GrowChartVersion growChartVersion;
 
 	@XmlElement(name = "tow")
 	private double tow;
@@ -23,12 +25,12 @@ public class DataCentile
 	@XmlElement(name = "bmi")
 	private double bmi;
 
-	public String getGrowChartVersion()
+	public GrowChartVersion getGrowChartVersion()
 	{
 		return growChartVersion;
 	}
 
-	public void setGrowChartVersion(String growChartVersion)
+	public void setGrowChartVersion(GrowChartVersion growChartVersion)
 	{
 		this.growChartVersion = growChartVersion;
 	}

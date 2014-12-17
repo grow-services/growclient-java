@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
 
+import nl.topicuszorg.growclient.model.GrowChartVersion;
 import nl.topicuszorg.growclient.model.request.BirthInput;
 import nl.topicuszorg.growclient.model.request.ChartImageInput;
 import nl.topicuszorg.growclient.model.request.ChartPdfInput;
@@ -51,7 +52,7 @@ public class GrowXmlClientTest
 	{
 		GrowChart chart = new GrowChart();
 		chart.setGrowChartId("1");
-		chart.setGrowChartVersion("NL2013");
+		chart.setGrowChartVersion(GrowChartVersion.NL2013);
 
 		when(client.registerPregnancy(notNull(PregnancyInput.class))).thenReturn(chart);
 

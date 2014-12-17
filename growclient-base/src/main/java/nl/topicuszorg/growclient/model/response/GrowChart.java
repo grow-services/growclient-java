@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import nl.topicuszorg.growclient.model.GrowChartVersion;
+
 /**
  * Grow chart response.
  * 
@@ -25,7 +27,7 @@ public class GrowChart
 	private String growChartId;
 
 	@XmlElement(name = "growchartversion")
-	private String growChartVersion;
+	private GrowChartVersion growChartVersion;
 
 	public String getGrowChartId()
 	{
@@ -37,12 +39,12 @@ public class GrowChart
 		this.growChartId = growChartId;
 	}
 
-	public String getGrowChartVersion()
+	public GrowChartVersion getGrowChartVersion()
 	{
 		return growChartVersion;
 	}
 
-	public void setGrowChartVersion(String growChartVersion)
+	public void setGrowChartVersion(GrowChartVersion growChartVersion)
 	{
 		this.growChartVersion = growChartVersion;
 	}
