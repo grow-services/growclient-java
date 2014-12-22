@@ -25,6 +25,9 @@ public class DataCentile
 	@XmlElement(name = "bmi")
 	private double bmi;
 
+	@XmlElement(name = "custombirthweightcentile")
+	private int customBirthweightCentile;
+
 	public GrowChartVersion getGrowChartVersion()
 	{
 		return growChartVersion;
@@ -53,5 +56,15 @@ public class DataCentile
 	public void setBmi(double bmi)
 	{
 		this.bmi = bmi;
+	}
+
+	public int getCustomBirthweightCentile()
+	{
+		return customBirthweightCentile;
+	}
+
+	public void setCustomBirthweightCentile(int customBirthweightCentile)
+	{
+		this.customBirthweightCentile = customBirthweightCentile;
 	}
 }

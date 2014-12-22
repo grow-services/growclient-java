@@ -1,8 +1,11 @@
 package nl.topicuszorg.growclient.client;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -11,10 +14,11 @@ import nl.topicuszorg.growclient.model.response.DataCentile;
 import nl.topicuszorg.growclient.model.response.GrowChart;
 import nl.topicuszorg.growclient.model.response.GrowChartImage;
 import nl.topicuszorg.growclient.model.response.GrowChartPdf;
+import nl.topicuszorg.growclient.model.response.MeasurementsOutput;
 
 /**
  * Grow REST XML proxy based client
- * 
+ *
  * @author Dries Schulten
  */
 @Path("/api/grow/v3/xml")
@@ -23,12 +27,12 @@ public interface GrowXmlClient
 {
 	/**
 	 * Register a pregnacy in the system
-	 * 
+	 *
 	 * @param pregnacy
-	 *            the pregnacy params
+	 * 		the pregnacy params
 	 * @return {@link GrowChart} only containing id and version fields
 	 */
-	@Path("/registerPregnancy/")
+	@Path("/registerpregnancy/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
@@ -36,23 +40,51 @@ public interface GrowXmlClient
 
 	/**
 	 * Used to register new measurements with an ongoing chart
-	 * 
+	 *
 	 * @param measurements
-	 *            the measurements to register
+	 * 		the measurements to register
+	 * @return added measurements
 	 */
-	@Path("/addMeasurement/")
+	@Path("/addmeasurement/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@POST
-	public void addMeasurement(MeasurementsInput measurements);
+	public MeasurementsOutput addMeasurement(MeasurementsInput measurements);
+
+	/**
+	 * Delete a measurement with the given UUID from the system
+	 *
+	 * @param growChartId
+	 * 		the GROW chart for this measurement
+	 * @param measurementUuid
+	 * 		the UUID of the measurement to delete
+	 */
+	@Path("/pregnancy/{growchartid}/measurement/{measurementuuid}?licensekey=myapikey&token=demotoken")
+	@DELETE
+	public void deleteMeasurement(@PathParam("growchartid") String growChartId, @PathParam("measurementuuid") String measurementUuid);
+
+	/**
+	 * Updates a existing measurment for the given chart
+	 *
+	 * @param growChartId
+	 * 		the GROW chart
+	 * @param measurementUuid
+	 * 		the UUID of the measurement to update
+	 * @param measurements
+	 * 		the measurement input data
+	 */
+	@Path("/pregnancy/{growchartid}/measurement/{measurementuuid}?licensekey=myapikey&token=demotoken")
+	@Consumes(MediaType.APPLICATION_XML)
+	@PUT
+	public void updateMeasurement(@PathParam("growchartid") String growChartId, @PathParam("measurementuuid") String measurementUuid, MeasurementsInput measurements);
 
 	/**
 	 * Used to retrieve a chart image object based in the given input
-	 * 
+	 *
 	 * @param image
-	 *            the input object containing the parameters to generate a image
+	 * 		the input object containing the parameters to generate a image
 	 * @return the output image value
 	 */
-	@Path("/getChartImage/")
+	@Path("/getchartimage/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
@@ -60,12 +92,12 @@ public interface GrowXmlClient
 
 	/**
 	 * Used to retrieve a PDF version of a chart
-	 * 
+	 *
 	 * @param pdf
-	 *            the input object containing the parameters to request a PDF chart
+	 * 		the input object containing the parameters to request a PDF chart
 	 * @return te output PDF chart data
 	 */
-	@Path("/getPdf/")
+	@Path("/getpdf/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
@@ -73,12 +105,12 @@ public interface GrowXmlClient
 
 	/**
 	 * Used to get the data of a specific chart at a specific point in time
-	 * 
+	 *
 	 * @param data
-	 *            the input data object
+	 * 		the input data object
 	 * @return a filled data object
 	 */
-	@Path("/getData/")
+	@Path("/getdata/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	@POST
@@ -86,11 +118,11 @@ public interface GrowXmlClient
 
 	/**
 	 * Register a birth in the system
-	 * 
+	 *
 	 * @param birth
-	 *            the input parameters for the birth
+	 * 		the input parameters for the birth
 	 */
-	@Path("/registerBirth/")
+	@Path("/registerbirth/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@POST
 	void registerBirth(BirthInput birth);
