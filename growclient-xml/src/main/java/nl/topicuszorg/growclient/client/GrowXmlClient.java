@@ -9,12 +9,16 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import nl.topicuszorg.growclient.model.request.*;
+import nl.topicuszorg.growclient.model.request.BirthInput;
+import nl.topicuszorg.growclient.model.request.ChartImageInput;
+import nl.topicuszorg.growclient.model.request.ChartPdfInput;
+import nl.topicuszorg.growclient.model.request.DataCentileInput;
+import nl.topicuszorg.growclient.model.request.MeasurementsInput;
+import nl.topicuszorg.growclient.model.request.PregnancyInput;
 import nl.topicuszorg.growclient.model.response.DataCentile;
 import nl.topicuszorg.growclient.model.response.GrowChart;
 import nl.topicuszorg.growclient.model.response.GrowChartImage;
 import nl.topicuszorg.growclient.model.response.GrowChartPdf;
-import nl.topicuszorg.growclient.model.response.MeasurementsOutput;
 
 /**
  * Grow REST XML proxy based client
@@ -48,7 +52,7 @@ public interface GrowXmlClient
 	@Path("/addmeasurement/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@POST
-	public MeasurementsOutput addMeasurement(MeasurementsInput measurements);
+	public MeasurementsInput addMeasurement(MeasurementsInput measurements);
 
 	/**
 	 * Delete a measurement with the given UUID from the system

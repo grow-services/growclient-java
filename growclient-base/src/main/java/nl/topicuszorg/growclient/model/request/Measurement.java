@@ -29,6 +29,9 @@ public class Measurement
 	@XmlElement
 	private int value;
 
+	@XmlElement(name = "uuid")
+	private String uuid;
+
 	public LocalDate getDate()
 	{
 		return date;
@@ -57,5 +60,15 @@ public class Measurement
 	public void setValue(int value)
 	{
 		this.value = value;
+	}
+
+	public String getUuid()
+	{
+		return uuid;
+	}
+
+	public void setUuid(String uuid)
+	{
+		this.uuid = uuid;
 	}
 }
