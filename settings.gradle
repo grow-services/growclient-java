@@ -1,1 +1,1 @@
-include "base", "rest"
+include "growclient-base", "growclient-xml"

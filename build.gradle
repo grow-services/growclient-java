@@ -1,4 +1,4 @@
-task wrapper(type: Wrapper) { gradleVersion = '1.9' }
+task wrapper(type: Wrapper) { gradleVersion = '2.2.1' }
 
 buildscript {
 	repositories {
@@ -15,13 +15,11 @@ buildscript {
 
 subprojects {
 	apply plugin: 'java'
-	apply plugin: 'eclipse'
-	apply plugin: 'maven'
 	apply plugin: 'maven-publish'
 	apply plugin: 'maven-publish-auth'
 
-	sourceCompatibility = 1.7
-	targetCompatibility = 1.7
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
 
 	repositories {
 		mavenLocal()
@@ -29,29 +27,32 @@ subprojects {
 	}
 
 	dependencies {
-		compile 'org.slf4j:slf4j-api:1.7.5'
+		compile 'org.slf4j:slf4j-api:1.7.7'
 
-		testCompile 'junit:junit:4.11'
-		testCompile 'ch.qos.logback:logback-classic:1.0.13'
-		testCompile 'org.codehaus.groovy:groovy-all:2.2.1'
+		testCompile 'junit:junit:4.12'
+		testCompile 'ch.qos.logback:logback-classic:1.1.2'
+		testCompile 'org.codehaus.groovy:groovy-all:2.3.8'
 	}
 
 	group = 'nl.topicuszorg.growclient'
 	version = '1.0-SNAPSHOT'
 
-	task sourceJar(type: Jar) { from sourceSets.main.allJava }
+	task sourceJar(type: Jar) {
+		from sourceSets.main.allJava
+		classifier "sources"
+	}
 
 	publishing {
 		publications {
 			mavenJava(MavenPublication) {
 				from components.java
-				artifact sourceJar { classifier "sources" }
+				artifact sourceJar
 			}
 		}
 		repositories {
 			maven {
 				name = "deployment.external"
-				if(project.version.endsWith('-SNAPSHOT')) {
+				if (project.version.endsWith('-SNAPSHOT')) {
 					url "http://vaatwasser:8081/nexus/content/repositories/external-snapshot/"
 				} else {
 					url "http://vaatwasser:8081/nexus/content/repositories/external-releases/"
