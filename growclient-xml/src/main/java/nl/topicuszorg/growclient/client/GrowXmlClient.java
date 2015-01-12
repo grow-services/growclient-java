@@ -62,7 +62,7 @@ public interface GrowXmlClient
 	 * @param measurementUuid
 	 * 		the UUID of the measurement to delete
 	 */
-	@Path("/pregnancy/{growchartid}/measurement/{measurementuuid}?licensekey=myapikey&token=demotoken")
+	@Path("/pregnancy/{growchartid}/measurement/{measurementuuid}")
 	@DELETE
 	public void deleteMeasurement(@PathParam("growchartid") String growChartId, @PathParam("measurementuuid") String measurementUuid);
 
@@ -76,7 +76,7 @@ public interface GrowXmlClient
 	 * @param measurements
 	 * 		the measurement input data
 	 */
-	@Path("/pregnancy/{growchartid}/measurement/{measurementuuid}?licensekey=myapikey&token=demotoken")
+	@Path("/pregnancy/{growchartid}/measurement/{measurementuuid}")
 	@Consumes(MediaType.APPLICATION_XML)
 	@PUT
 	public void updateMeasurement(@PathParam("growchartid") String growChartId, @PathParam("measurementuuid") String measurementUuid, MeasurementsInput measurements);
