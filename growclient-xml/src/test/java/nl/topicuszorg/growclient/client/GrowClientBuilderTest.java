@@ -2,8 +2,12 @@ package nl.topicuszorg.growclient.client;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Collections;
+
 import nl.topicuszorg.growclient.GrowClientSettings;
 
+import org.apache.cxf.interceptor.LoggingInInterceptor;
+import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.junit.Test;
 
 /**
@@ -23,6 +27,9 @@ public class GrowClientBuilderTest
 		GrowClientSettings.setSecret("secret");
 
 		GrowClientBuilder builder = new GrowClientBuilder();
+		builder.setInInterceptors(Collections.singletonList(new LoggingInInterceptor()));
+		builder.setOutInterceptors(Collections.singletonList(new LoggingOutInterceptor()));
+
 		GrowXmlClient client = builder.getClient();
 
 		assertNotNull(client);
